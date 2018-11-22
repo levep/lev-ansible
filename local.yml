@@ -1,11 +1,11 @@
 - hosts: localhost
   become: true
   tasks:
-  - name: Install htop
-    dnf: name=top
-  
-  - name: Install mc
-    dnf: name=mc
-
-  - name: Install tmux
-    dnf: name=tmux
+  - name: Install packages
+    dnf: name={{item}}
+    with_items:
+      - htop
+      - mc
+      - tmux
+      - vim 
+      
